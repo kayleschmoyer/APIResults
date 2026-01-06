@@ -2,6 +2,41 @@
 
 A simple, no-dependencies Python tool for testing APIs from the command line.
 
+## Setup
+
+### 1. Download from GitHub
+
+Open a terminal or command prompt and run:
+
+```bash
+git clone https://github.com/kayleschmoyer/APIResults.git
+```
+
+This will create an `APIResults` folder with all the project files.
+
+### 2. Move to Your Project Folder
+
+Move or clone directly into your work directory:
+
+```bash
+cd C:\WorkProjects
+git clone https://github.com/kayleschmoyer/APIResults.git
+```
+
+Or if you already cloned it elsewhere, copy the folder:
+
+```bash
+xcopy /E /I APIResults C:\WorkProjects\APIResults
+```
+
+### 3. Navigate to the Project
+
+```bash
+cd C:\WorkProjects\APIResults
+```
+
+You're now ready to use the API Testing Tool!
+
 ## Features
 
 - **Token persistence** - Set your Bearer token once, it remembers it
