@@ -15,6 +15,27 @@ from urllib.parse import urlencode
 
 TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".api_token")
 
+
+def enable_windows_ansi():
+    """Enable ANSI escape code support on Windows."""
+    if sys.platform == "win32":
+        try:
+            import ctypes
+            kernel32 = ctypes.windll.kernel32
+            # Enable ANSI escape sequences on Windows 10+
+            # STD_OUTPUT_HANDLE = -11
+            # ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004
+            handle = kernel32.GetStdHandle(-11)
+            mode = ctypes.c_ulong()
+            kernel32.GetConsoleMode(handle, ctypes.byref(mode))
+            kernel32.SetConsoleMode(handle, mode.value | 0x0004)
+        except Exception:
+            # If it fails, colors just won't work - not critical
+            pass
+
+
+enable_windows_ansi()
+
 # Colors for terminal output
 class Colors:
     GREEN = "\033[92m"
